@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AIC Software</title>
+    <link href="~/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div class="navbar-brand bg-info">AIC Software</div>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <footer class="blockquote-footer fixed-bottom">
+        <em>An Imaginary Company</em>&nbsp;&nbsp;
+        &copy;@(DateTime.Today.ToString("yyyy"))
+    </footer>
+</body>
+</html>

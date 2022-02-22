@@ -1,0 +1,46 @@
+﻿@model SoftwareCatalogViewModel
+
+@{
+    string filter = (Model == null || Model.SoftwareVersionFilter == null) ? "" : Model.SoftwareVersionFilter;
+}
+
+<div class="row">
+
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <h3>Software Catalog</h3>
+
+        <form method="post">
+            <div>
+                <label for="VersionFilter">product build since (ver.):</label>
+                <input for="VersionFilter" name="SoftwareVersionFilter" autofocus
+                       value="@filter" 
+                 />
+            </div>
+            <button type="submit" class="visually-hidden"></button>
+        </form>
+
+        <p>&nbsp;</p>
+
+        @if (Model is not null && Model.Products.Any())
+        {
+            <table class="table table-striped border border-primary rounded">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Version</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var s in Model.Products)
+                    {
+                        <tr>
+                            <td>@s.Name</td>
+                            <td>@s.Version</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>
